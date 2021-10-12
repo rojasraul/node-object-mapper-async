@@ -1,0 +1,13 @@
+{
+  "node": true,
+  "maxdepth": 5,
+  "maxcomplexity": 20,
+  "shelljs": true,
+  "esversion": 9,
+  "strict": false,
+  "eqeqeq": true,
+  "latedef": false,
+  "undef": true,
+  "unused": false,
+  "expr": true
+}

@@ -27,4 +27,4 @@
 
  */
 
-module.exports = require('./src/object-mapper');
+module.exports = require('./src/object-mapper-async');

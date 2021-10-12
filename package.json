@@ -8,12 +8,16 @@
     "url": "git://github.com/wankdanker/node-object-mapper.git"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "jest --coverage",
+    "prettier:write": "prettier --write  \"./{test,src}/**/*.js\"",
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "debug": "^2.2.0",
-    "tape": "^4.0.1",
-    "perf_hooks": "0.0.1"
+    "jest": "^27.2.5",
+    "perf_hooks": "0.0.1",
+    "prettier": "^2.4.1"
   },
   "optionalDependencies": {},
   "engines": {
