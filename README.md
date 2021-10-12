@@ -1,16 +1,20 @@
-# object-mapper
+# object-mapper-async
 
 [![Build Status](https://travis-ci.org/wankdanker/node-object-mapper.svg)](https://travis-ci.org/wankdanker/node-object-mapper) [![Join the chat at https://gitter.im/wankdanker/node-object-mapper](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wankdanker/node-object-mapper?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 ## About
 
 Utility to copy properties from one `Object` to another based
 on instructions given in a map `Object`, which defines which properties should be mapped.
 
+* Async fork: [node-object-mapper-async](https://github.com/rojasraul/node-object-mapper-async)
+* Async instructions at the end.
+
 ## Installation
 
 ```shell
-$ npm install --save object-mapper
+$ npm install --save object-mapper-async
 ```
 
 ## Usage
@@ -62,13 +66,13 @@ When using a `String` as the destination, use the method described above.
 To utilize a source field more than once, utilize the key-transform syntax in the mapping link:
 
 ```javascript
-var objectMapper = require('object-mapper');
+var objectMapper = require('object-mapper-async');
 
 var map = {
   "foo": [
     {
       key: "foo",
-      transform: function (value) { 
+      transform: function (value) {
         return value + "_foo";
       }
     },
@@ -91,7 +95,7 @@ var dest = objectMapper(src, map);
 
 // dest.foo: 'blah_foo'
 // dest.baz: 'blah_baz'
-// dest.bar: 'something' 
+// dest.bar: 'something'
 ```
 
 #### Object
@@ -188,7 +192,7 @@ var results = ObjectMapper(original, {}, transform);
 Copy properties from **sourceObject** to **destinationObject** by following the
 mapping defined by **mapObject**
 
-This function is also exported directly from `require('object-mapper')` (ie: `var merge = require('object-mapper');`)
+This function is also exported directly from `require('object-mapper-async')` (ie: `var merge = require('object-mapper-async');`)
 
  - **sourceObject** is the object FROM which properties will be copied.
  - **destinationObject** [OPTIONAL] is the object TO which properties will be copied.
@@ -217,7 +221,7 @@ other projects.
 ## Example
 
 ```javascript
-var objectMapper = require('object-mapper');
+var objectMapper = require('object-mapper-async');
 
 var src = {
   "sku": "12345",
@@ -272,6 +276,28 @@ var dest = objectMapper(src, map);
 I use the **object-mapper's** `merge()` method to map values from records
 returned from a database into horribly complex objects that will be eventually
 turned in to XML.
+
+# Async example
+
+
+```javascript
+const src = { mySize: 10 };
+const map = {
+    mySize: [
+        {
+            key: "sizes",
+            transform: (sizes) =>
+                new Promise((resolve) => {
+                    resolve(sizes * 10);
+                }),
+        },
+    ],
+};
+const result = await objectMapper(src, map);
+
+// expected output = { sizes: 100 }
+```
+
 
 
 ## License
