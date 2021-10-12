@@ -446,7 +446,7 @@ function getKeyValue(src, keyStr) {
 
 /**
  * See {@link https://www.npmjs.com/package/object-mapper}.
- * @author Vivienda Team
+ * @author rojasraul
  * @param {Object} src - See npm object-mapper documentation
  * @param {Object} dest - See npm object-mapper documentation
  * @param {Object} map - See npm object-mapper documentation
