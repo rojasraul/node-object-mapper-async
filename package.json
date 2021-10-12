@@ -1,11 +1,11 @@
 {
-  "author": "Dan VerWeire <dverweire@gmail.com>",
-  "name": "object-mapper",
-  "description": "Copy properties from one object to another.",
-  "version": "6.2.0",
+  "author": "Fork from object-mapper",
+  "name": "object-mapper-async",
+  "description": "Copy properties from one object to another supporting async functions",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wankdanker/node-object-mapper.git"
+    "url": "git://github.com:rojasraul/node-object-mapper-async.git"
   },
   "scripts": {
     "test": "jest --coverage",
@@ -40,6 +40,10 @@
     },
     {
       "name": "scotthogan"
+    },
+    {
+      "name": "Raul Rojas",
+      "email": "raulrojash@hotmail.com"
     }
   ]
 }
