@@ -2,7 +2,7 @@
   "author": "Fork from object-mapper",
   "name": "object-mapper-async",
   "description": "Copy properties from one object to another supporting async functions",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
