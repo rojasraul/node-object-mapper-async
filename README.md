@@ -8,7 +8,8 @@
 Utility to copy properties from one `Object` to another based
 on instructions given in a map `Object`, which defines which properties should be mapped.
 
-* Async fork: [node-object-mapper-async](https://github.com/rojasraul/node-object-mapper-async)
+This project is a fork of [node-object-mapper](https://github.com/wankdanker/node-object-mapper)
+
 * Async instructions at the end.
 
 ## Installation
@@ -285,17 +286,14 @@ const src = { mySize: 10 };
 const map = {
     mySize: [
         {
-            key: "sizes",
-            transform: (sizes) =>
-                new Promise((resolve) => {
-                    resolve(sizes * 10);
-                }),
+            key: "newSize",
+            transform: (value) => new Promise((resolve) => resolve(value * 10)),
         },
     ],
 };
 const result = await objectMapper(src, map);
 
-// expected output = { sizes: 100 }
+// expected output = { newSize: 100 }
 ```
 
 
