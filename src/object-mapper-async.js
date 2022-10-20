@@ -115,7 +115,7 @@ async function updateArrIx(dest, ix, data, keys, context) {
     typeof dest[ix] !== "undefined"
   )
     o = keys.length ? await update(dest[ix], data, keys, context) : data;
-  else o = keys.length ? await update(null, data, keys, context) : data;
+  else o = keys.length ? await update(null, data, keys, context) : applyTransform(data, dest, context);
 
   // Only update (and create if needed) dest if there is data to be saved
   if (o !== null) {
@@ -160,7 +160,7 @@ async function updateArr(dest, key, data, keys, context) {
         return await updateArrIx(
           await dest,
           i,
-          await applyTransform(d, dest, context),
+          d,
           keys.slice(),
           context
         );

@@ -2270,4 +2270,35 @@ describe("Object Mapper Async", () => {
     const result = await om(src, map);
     expect(result).toEqual(expected);
   });
+
+  it("map array with function", async () => {
+    var obj = {
+      theArray: [
+        {text:"textvalue"},
+        {text:"text"}
+      ]
+    };
+
+    var expect = {
+      newArray: [
+        {textSize:9},
+        {textSize:4}
+      ]
+    };
+
+    let transformFunc = {
+      key:'newArray[].textSize',
+      transform: function (value, src, dest, srcKey, destKey){
+        return value.length
+      }
+    };
+    var map = {
+      'theArray[].text': transformFunc
+    };
+
+    var result = om(obj, map);
+
+    t.deepEqual(result, expect);
+    t.end();
+  });
 });
